@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta de Social Media — Set Point</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bc: #F7F3EE;
+    --bcd: #EDE5D8;
+    --accent: #2C2117;
+    --gold: #8B6B4E;
+    --gold-light: #C4A882;
+    --muted: #7A6E65;
+    --line: rgba(44,33,23,0.12);
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bc);
+    color: var(--accent);
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 0 4rem;
+    background: var(--bc);
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--accent);
+    color: var(--bc);
+    padding: 3.5rem 3rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,130,0.18);
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -70px; right: 70px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,168,130,0.1);
+  }
+
+  .cover-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .cover h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+    color: #F7F3EE;
+  }
+
+  .cover h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 0.5px solid rgba(196,168,130,0.3);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .cover-meta-item {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  .cover-meta-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.7;
+  }
+
+  .cover-meta-value {
+    font-size: 13px;
+    color: #F7F3EE;
+    font-weight: 400;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 2.75rem 3rem 0;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .body-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 620px;
+  }
+
+  .divider {
+    height: 0.5px;
+    background: var(--line);
+    margin: 2.75rem 3rem 0;
+  }
+
+  /* OBJETIVOS — concretos */
+  .obj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+
+  .obj-card {
+    background: var(--white);
+    border: 0.5px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .obj-icon {
+    font-size: 17px;
+    color: var(--gold);
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .obj-content {}
+
+  .obj-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .obj-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 1.5rem;
+  }
+
+  .service-block {
+    background: var(--bc);
+    padding: 1.6rem;
+  }
+
+  .service-icon {
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .service-list li {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .service-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold-light);
+    font-size: 10px;
+    top: 2px;
+  }
+
+  /* ENTREGAS */
+  .deliverables-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .deliverables-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 1.25rem;
+  }
+
+  .deliverable-item {
+    background: var(--accent);
+    color: var(--bc);
+    padding: 1.5rem 0.75rem;
+    text-align: center;
+  }
+
+  .deliverable-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .deliverable-label {
+    font-size: 11px;
+    color: rgba(247,243,238,0.6);
+    line-height: 1.4;
+  }
+
+  /* FASES */
+  .phases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 1.5rem;
+  }
+
+  .phase-card {
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .phase-header {
+    padding: 1.1rem 1.4rem;
+    border-bottom: 0.5px solid var(--line);
+    background: var(--white);
+  }
+
+  .phase-number {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .phase-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .phase-body {
+    padding: 1.1rem 1.4rem;
+    background: var(--bc);
+  }
+
+  .phase-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .phase-list li {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .phase-list li::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 0.5px;
+    background: var(--gold-light);
+    flex-shrink: 0;
+    margin-top: 9px;
+  }
+
+  /* INVESTMENT */
+  .investment-block {
+    background: var(--accent);
+    border-radius: 14px;
+    padding: 2.25rem 2.25rem 2rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .investment-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.7;
+    margin-bottom: 0.4rem;
+  }
+
+  .investment-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--bc);
+    line-height: 1;
+  }
+
+  .investment-period {
+    font-size: 13px;
+    color: var(--gold-light);
+    margin-top: 5px;
+  }
+
+  .investment-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-top: 4px;
+  }
+
+  .inc-item {
+    font-size: 12.5px;
+    color: rgba(247,243,238,0.55);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .inc-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    flex-shrink: 0;
+  }
+
+  /* CONDITIONS */
+  .conditions {
+    background: var(--white);
+    border: 0.5px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .condition-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .condition-item i {
+    font-size: 16px;
+    color: var(--gold);
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  /* CLOSING */
+  .closing {
+    padding: 3rem 3rem 0;
+    text-align: center;
+  }
+
+  .closing p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.6;
+  }
+
+  .sig {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 560px) {
+    .cover { padding: 2.5rem 1.75rem 2.25rem; }
+    .section { padding: 2.25rem 1.75rem 0; }
+    .divider { margin: 2.25rem 1.75rem 0; }
+    .services-grid { grid-template-columns: 1fr; }
+    .phases-grid { grid-template-columns: 1fr; }
+    .deliverables-row { grid-template-columns: repeat(3, 1fr); }
+    .investment-block { flex-direction: column; }
+    .conditions { grid-template-columns: 1fr; }
+    .obj-grid { grid-template-columns: 1fr; }
+    .closing { padding: 2.5rem 1.75rem 0; }
+  }
+
+  @media print {
+    body { background: white; }
+    .wrap { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-tag">Proposta de Serviços · Social Media</div>
+    <h1>Set Point</h1>
+    <h2>Tênis · Beach Tennis · Treinamento Funcional</h2>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Profissional</span>
+        <span class="cover-meta-value">Bárbara Cordova</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Canal</span>
+        <span class="cover-meta-value">Instagram</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Vigência</span>
+        <span class="cover-meta-value">Mensal, renovável</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Contato</span>
+        <span class="cover-meta-value">@barbaracordovamkt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <div class="section">
+    <div class="section-label">Visão geral</div>
+    <div class="section-title">Sobre o projeto</div>
+    <p class="body-text">
+      Esta proposta apresenta um serviço completo de gestão de social media para o Set Point — futuro clube esportivo no Campeche, com quadras de tênis, beach tennis e academia de treinamento funcional.<br><br>
+      A gestão contempla desde a fase de pré-inauguração até a consolidação da marca no digital — com cada entrega planejada, executada e publicada para construir uma presença forte, consistente e alinhada ao posicionamento do clube.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- OBJETIVOS CONCRETOS -->
+  <div class="section">
+    <div class="section-label">O que será feito</div>
+    <div class="section-title">Ações e entregas concretas</div>
+    <div class="obj-grid">
+
+      <div class="obj-card">
+        <i class="ti ti-brand-instagram obj-icon" aria-hidden="true"></i>
+        <div class="obj-content">
+          <div class="obj-title">Perfil estruturado do zero</div>
+          <div class="obj-desc">Bio, destaques e feed organizados com identidade desde o primeiro post.</div>
+        </div>
+      </div>
+
+      <div class="obj-card">
+        <i class="ti ti-calendar-event obj-icon" aria-hidden="true"></i>
+        <div class="obj-content">
+          <div class="obj-title">Calendário editorial mensal</div>
+          <div class="obj-desc">Todos os conteúdos planejados com antecedência — datas, formatos e temas definidos.</div>
+        </div>
+      </div>
+
+      <div class="obj-card">
+        <i class="ti ti-camera obj-icon" aria-hidden="true"></i>
+        <div class="obj-content">
+          <div class="obj-title">Captação presencial (2x/mês)</div>
+          <div class="obj-desc">Fotos e vídeos no Set Point com direcionamento criativo in loco para feed e reels.</div>
+        </div>
+      </div>
+
+      <div class="obj-card">
+        <i class="ti ti-device-mobile obj-icon" aria-hidden="true"></i>
+        <div class="obj-content">
+          <div class="obj-title">Stories com apoio na publicação</div>
+          <div class="obj-desc">Roteiros semanais prontos para o clube publicar — com programação de alguns conteúdos diretamente pela gestão.</div>
+        </div>
+      </div>
+
+      <div class="obj-card">
+        <i class="ti ti-writing obj-icon" aria-hidden="true"></i>
+        <div class="obj-content">
+          <div class="obj-title">Copywriting de todas as publicações</div>
+          <div class="obj-desc">Legendas estratégicas com tom e linguagem alinhados ao posicionamento do Set Point.</div>
+        </div>
+      </div>
+
+      <div class="obj-card">
+        <i class="ti ti-chart-bar obj-icon" aria-hidden="true"></i>
+        <div class="obj-content">
+          <div class="obj-title">Análise de desempenho mensal</div>
+          <div class="obj-desc">Resultados revisados todo mês para ajustar estratégia com base em dados reais.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SERVIÇOS -->
+  <div class="section">
+    <div class="section-label">Serviços inclusos</div>
+    <div class="section-title">O que está contratado</div>
+    <div class="services-grid">
+      <div class="service-block">
+        <i class="ti ti-strategy service-icon" aria-hidden="true"></i>
+        <div class="service-title">Gestão estratégica</div>
+        <ul class="service-list">
+          <li>Planejamento mensal de conteúdo</li>
+          <li>Calendário editorial com datas e formatos</li>
+          <li>Escrita de legendas para todos os posts</li>
+          <li>Organização e curadoria visual do feed</li>
+          <li>Análise de desempenho mensal</li>
+          <li>Publicação e agendamento dos conteúdos</li>
+        </ul>
+      </div>
+      <div class="service-block">
+        <i class="ti ti-camera service-icon" aria-hidden="true"></i>
+        <div class="service-title">Produção de conteúdo</div>
+        <ul class="service-list">
+          <li>Captação presencial de fotos e vídeos (2x/mês)</li>
+          <li>Direcionamento criativo durante as gravações</li>
+          <li>Edição de vídeos e tratamento de imagens</li>
+          <li>Reels com roteiro, edição e legenda</li>
+          <li>Conteúdos institucionais e lifestyle do clube</li>
+        </ul>
+      </div>
+      <div class="service-block">
+        <i class="ti ti-device-mobile service-icon" aria-hidden="true"></i>
+        <div class="service-title">Stories estratégicos</div>
+        <ul class="service-list">
+          <li>Planejamento semanal com roteiros prontos</li>
+          <li>Formatos de relacionamento, venda e interação</li>
+          <li>Enquetes, caixas de perguntas e engajamento</li>
+          <li>Programação de alguns conteúdos pela gestão</li>
+          <li>A publicação diária é de responsabilidade do clube — os roteiros e orientações são entregues com antecedência</li>
+        </ul>
+      </div>
+      <div class="service-block">
+        <i class="ti ti-sparkles service-icon" aria-hidden="true"></i>
+        <div class="service-title">Posicionamento de marca</div>
+        <ul class="service-list">
+          <li>Definição de tom e linguagem do Set Point</li>
+          <li>Coerência visual entre todos os conteúdos</li>
+          <li>Narrativa alinhada ao lifestyle premium</li>
+          <li>Comunicação voltada para atração e conversão</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ENTREGAS -->
+  <div class="section">
+    <div class="section-label">Entregas mensais</div>
+    <div class="section-title">Volume garantido por mês</div>
+    <p class="deliverables-note">Os 4 reels estão inclusos nas 8 publicações de feed. No total, são 8 posts por mês: 4 reels + 4 posts estáticos ou carrosséis.</p>
+    <div class="deliverables-row">
+      <div class="deliverable-item">
+        <div class="deliverable-number">4</div>
+        <div class="deliverable-label">reels<br>estratégicos</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-number">4</div>
+        <div class="deliverable-label">posts de<br>feed</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-number">8</div>
+        <div class="deliverable-label">publicações<br>no total</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-number">2</div>
+        <div class="deliverable-label">diárias de<br>captação</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-number">30</div>
+        <div class="deliverable-label">dias de stories<br>planejados</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FASES -->
+  <div class="section">
+    <div class="section-label">Estratégia de comunicação</div>
+    <div class="section-title">Duas fases, uma construção</div>
+    <div class="phases-grid">
+      <div class="phase-card">
+        <div class="phase-header">
+          <div class="phase-number">Fase 01</div>
+          <div class="phase-title">Pré-inauguração</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li>Bastidores da preparação do espaço</li>
+            <li>Apresentação da estrutura e diferenciais</li>
+            <li>Construção de expectativa e desejo</li>
+            <li>Apresentação da história e do conceito do clube</li>
+            <li>Conteúdos de lifestyle esportivo</li>
+            <li>Captação de audiência e interesse</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-header">
+          <div class="phase-number">Fase 02</div>
+          <div class="phase-title">Pós-inauguração</div>
+        </div>
+        <div class="phase-body">
+          <ul class="phase-list">
+            <li>Experiência real dos alunos e membros</li>
+            <li>Rotina do clube em formato de conteúdo</li>
+            <li>Prova social e depoimentos</li>
+            <li>Autoridade por consistência</li>
+            <li>Fortalecimento de comunidade</li>
+            <li>Comunicação de conversão e matrículas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- INVESTIMENTO -->
+  <div class="section">
+    <div class="section-label">Investimento</div>
+    <div class="section-title">Valor e condições</div>
+    <div class="investment-block">
+      <div>
+        <div class="investment-label">Investimento mensal</div>
+        <div class="investment-value">R$ 3.500</div>
+        <div class="investment-period">por mês · renovação automática</div>
+      </div>
+      <div class="investment-includes">
+        <div class="inc-item"><div class="inc-dot"></div>Estratégia e planejamento mensal</div>
+        <div class="inc-item"><div class="inc-dot"></div>Captação presencial (2 diárias/mês)</div>
+        <div class="inc-item"><div class="inc-dot"></div>Edição de vídeos e tratamento de imagens</div>
+        <div class="inc-item"><div class="inc-dot"></div>Publicação e gestão do Instagram</div>
+        <div class="inc-item"><div class="inc-dot"></div>Stories e calendário editorial mensal</div>
+        <div class="inc-item"><div class="inc-dot"></div>Copywriting de todas as publicações</div>
+      </div>
+    </div>
+    <div class="conditions">
+      <div class="condition-item">
+        <i class="ti ti-calendar" aria-hidden="true"></i>
+        <span>Prazos definidos no calendário mensal acordado entre as partes</span>
+      </div>
+      <div class="condition-item">
+        <i class="ti ti-plus" aria-hidden="true"></i>
+        <span>Serviços adicionais podem ser orçados separadamente conforme necessidade</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FECHAMENTO -->
+  <div class="closing">
+    <p>"Mais do que alimentar um perfil — construir uma marca que as pessoas queiram acompanhar antes mesmo de pisar no clube."</p>
+    <div class="sig">Bárbara Cordova · @barbaracordovamkt</div>
+  </div>
+
+</div>
+</body>
+</html>
